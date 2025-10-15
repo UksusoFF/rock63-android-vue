@@ -8,6 +8,7 @@
 *.tmp.*
 *.sublime-project
 *.sublime-workspace
+*.keystore
 .DS_Store
 Thumbs.db
 UserInterfaceState.xcuserstate
@@ -30,3 +31,4 @@ npm-debug.log*
 /platforms
 /plugins
 /www
+/android/app/release/*

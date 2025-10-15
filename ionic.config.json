@@ -1,7 +1,8 @@
 {
-  "name": "ru.uksusov.rock63",
-  "integrations": {
-    "capacitor": {}
-  },
-  "type": "vue-vite"
+    "name": "rock63.ru",
+    "id": "com.uksusoff.rock63",
+    "integrations": {
+        "capacitor": {}
+    },
+    "type": "vue-vite"
 }
