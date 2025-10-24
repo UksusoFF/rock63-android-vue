@@ -1,5 +1,11 @@
 <template>
-  <ion-item button lines="full" v-for="article in newsStore.articles" :key="article.id" :href="article.url">
+  <ion-item
+    button
+    lines="full"
+    v-for="article in newsStore.articles"
+    :key="article.id"
+    :href="`${article.url}?utm_source=android&utm_term=menu`"
+  >
     <ion-thumbnail slot="end" v-if="article.img">
       <img :alt="article.title" :src="article.img.img_s" />
     </ion-thumbnail>
