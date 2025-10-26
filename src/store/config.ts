@@ -11,10 +11,10 @@ export const useConfigStore = defineStore("config", {
     },
   },
   actions: {
-    init() {
+    init(): void {
       document.documentElement.classList.toggle("ion-palette-dark", this.isThemeDark);
     },
-    toggle() {
+    toggleTheme(): void {
       this.theme = this.theme === "dark" ? "light" : "dark";
 
       document.documentElement.classList.toggle("ion-palette-dark", this.isThemeDark);
