@@ -14,7 +14,7 @@ export const useNewsStore = defineStore("news", {
   }),
   getters: {
     isOutdated: (state) => {
-      return state.lastUpdated ? moment.unix(state.lastUpdated).diff(moment(), "day") > 1 : true;
+      return state.lastUpdated ? moment().diff(moment.unix(state.lastUpdated), "day") >= 1 : true;
     },
     articles(state): APIArticle[] {
       return state.nodes.filter((node: APIArticle) => {
