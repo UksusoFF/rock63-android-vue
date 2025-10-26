@@ -82,7 +82,7 @@ App.getInfo().then((info: AppInfo) => {
 });
 
 function toggleTheme(): void {
-  configStore.toggle();
+  configStore.toggleTheme();
 }
 </script>
 
