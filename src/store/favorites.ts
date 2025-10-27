@@ -9,8 +9,22 @@ export const useFavoriteStore = defineStore("favorite", {
   persist: true,
   state: () => ({
     events: [] as string[],
+    open: null as string | null,
   }),
   actions: {
+    init(): void {
+      void LocalNotifications.requestPermissions();
+
+      void LocalNotifications.addListener("localNotificationActionPerformed", (payload) => {
+        if (!payload.notification.extra.id) {
+          return;
+        }
+
+        void showMessage(`/event/${payload.notification.extra.id}`);
+
+        this.open = payload.notification.extra.id;
+      });
+    },
     toggle(apiEvent: APIEventExtended): void {
       if (this.events.includes(apiEvent.id)) {
         this.events = this.events.filter((item: string): boolean => item !== apiEvent.id);
@@ -34,6 +48,9 @@ export const useFavoriteStore = defineStore("favorite", {
             title: `${apiEvent.title}`,
             body: `${humanDateLong(apiEvent.start)} @ ${apiEvent.venue?.title}`,
             schedule: { at: apiEvent.start.subtract(1, "day").toDate() },
+            extra: {
+              id: apiEvent.id,
+            },
           },
         ],
       });

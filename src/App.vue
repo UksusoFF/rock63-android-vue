@@ -44,16 +44,34 @@ import {
   IonToolbar,
 } from "@ionic/vue";
 import { settingsOutline } from "ionicons/icons";
+import { storeToRefs } from "pinia";
+import { watch } from "vue";
 import { useRouter } from "vue-router";
 
+import { showMessage } from "@/helpers/toast";
 import { useConfigStore } from "@/store/config";
+import { useFavoriteStore } from "@/store/favorites";
 import NewsList from "@/views/news/NewsList.vue";
 
 const configStore = useConfigStore();
+const favoriteStore = useFavoriteStore();
 
 const router = useRouter();
 
 configStore.init();
+favoriteStore.init();
+
+const { open } = storeToRefs(favoriteStore);
+
+watch(open, () => {
+  if (open.value) {
+    void router.push(`/event/${open.value}`);
+
+    favoriteStore.open = null;
+  } else {
+    void showMessage("watch");
+  }
+});
 
 function configClick(): void {
   router.push("/config");
