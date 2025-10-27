@@ -41,7 +41,7 @@ import BugsnagPluginVue from "@bugsnag/plugin-vue";
 Bugsnag.start({
   apiKey: "2045ddbe9316078f44e5396db36338be",
   plugins: [new BugsnagPluginVue()],
-  appVersion: "3.0.0-web",
+  appVersion: "3.0.1-web",
 });
 
 const app = createApp(App)
