@@ -48,7 +48,6 @@ import { storeToRefs } from "pinia";
 import { watch } from "vue";
 import { useRouter } from "vue-router";
 
-import { showMessage } from "@/helpers/toast";
 import { useConfigStore } from "@/store/config";
 import { useFavoriteStore } from "@/store/favorites";
 import NewsList from "@/views/news/NewsList.vue";
@@ -68,8 +67,6 @@ watch(open, () => {
     void router.push(`/event/${open.value}`);
 
     favoriteStore.open = null;
-  } else {
-    void showMessage("watch");
   }
 });
 
