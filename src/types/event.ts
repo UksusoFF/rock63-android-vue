@@ -1,5 +1,6 @@
 import moment, { Moment } from "moment/moment";
 
+import { APIImage } from "@/types/image";
 import { APIVenue } from "@/types/venue";
 
 export type APIEvent = {
@@ -12,17 +13,12 @@ export type APIEvent = {
     s: string;
     e: string | undefined;
   };
-  img:
-    | {
-        img_s: string;
-        img_m: string;
-        img_o: string;
-      }
-    | undefined;
+  img: APIImage | undefined;
   notify: string | undefined;
   tickets_url: string | undefined;
   vk_url: string | undefined;
   vk_id: string | undefined;
+  lineup: APIImage[] | undefined;
 };
 
 export type APIEventExtended = APIEvent & {
