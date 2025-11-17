@@ -32,7 +32,10 @@
 
           <ion-card-title>
             <p class="event-page-title">{{ apiEvent.title }}</p>
-            <p class="event-page-date">{{ humanDateLong(apiEvent.start) }}</p>
+            <p class="event-page-date">
+              {{ humanDateLong(apiEvent.start) }}
+              <span v-if="apiEvent.end">&mdash;<br />{{ humanDateLong(apiEvent.end) }}</span>
+            </p>
           </ion-card-title>
           <ion-accordion-group v-if="apiEvent.venue">
             <ion-accordion value="first" :toggle-icon="locationOutline" class="event-page-venue-wrap">
