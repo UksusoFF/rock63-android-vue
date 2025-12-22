@@ -155,9 +155,11 @@ function eventFavorite(): void {
 }
 
 function eventShare(): void {
+  const venueString = apiEvent.venue ? ` @ ${apiEvent.venue?.title}` : '';
+
   const options = {
     title: apiEvent.title,
-    text: `${apiEvent.title} @ ${apiEvent.venue?.title}\n${humanDateLong(apiEvent.start)}\n\n`,
+    text: `${apiEvent.title}${venueString}\n${humanDateLong(apiEvent.start)}\n\n`,
     url: `${apiEvent.url}?utm_source=android&utm_term=share`,
   };
 

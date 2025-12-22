@@ -41,12 +41,14 @@ export const useFavoriteStore = defineStore("favorite", {
 
       void LocalNotifications.requestPermissions();
 
+      const venueString = apiEvent.venue ? ` @ ${apiEvent.venue?.title}` : '';
+
       void LocalNotifications.schedule({
         notifications: [
           {
             id: parseInt(apiEvent.id),
             title: `${apiEvent.title}`,
-            body: `${humanDateLong(apiEvent.start)} @ ${apiEvent.venue?.title}`,
+            body: `${humanDateLong(apiEvent.start)}${venueString}`,
             schedule: { at: apiEvent.start.subtract(1, "day").toDate() },
             extra: {
               id: apiEvent.id,
