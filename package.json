@@ -1,7 +1,7 @@
 {
   "name": "com.uksusoff.rock63",
   "private": true,
-  "version": "3.0.1",
+  "version": "3.0.2",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -26,7 +26,7 @@
     "@capacitor/status-bar": "^7.0.3",
     "@ionic/vue": "^8.0.0",
     "@ionic/vue-router": "^8.0.0",
-    "axios": "^1.12.2",
+    "axios": "^1.13.6",
     "ionicons": "^7.0.0",
     "moment": "^2.30.1",
     "pinia": "^3.0.3",
